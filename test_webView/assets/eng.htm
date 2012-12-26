@@ -1,0 +1,273 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>New Web Project</title>
+<style type="text/css">
+.a {
+	color: #03C;
+	font-size: xx-large;
+	font-family: "Times New Roman", Times, serif;
+	font-weight: bold;
+	text-align: center;
+}
+.b {
+	font-weight: bold;
+	color: #000;
+	text-align: center;
+	font-size: xx-large;
+}
+#RadioGroup1_0 {
+	font-size: x-large;
+}
+.t2 {
+	font-size: xx-large;
+}
+</style>
+</head>
+<body>
+<table border="0"  align="center" width="700">
+<tr><td>
+	<h1 class="a">Shanghai Taxi fee calculator </h1>
+    
+	<h1 class="b">上海出租车费计算器	</h1>
+</td></tr>
+<tr><td>
+	<form class="a" name="form1" method="post" action="">
+	<p>
+      <label>
+	      <span id="RadioGroup1_0">
+	      <input name="RadioGroup1" type="radio" class="t2" id="RadioGroup1_0" value="单选"  onClick="location.href='index.htm'" >
+	      <span class="t2">简体中文</span></span></label>
+	    <span id="RadioGroup1_0"> &nbsp;&nbsp;&nbsp;&nbsp;
+        <label>
+          <input type="radio" class="t2" name="RadioGroup1" value="单选" id="RadioGroup1_1" checked>
+	       <span class="t2">English</span>
+	    </label>
+        </span><br>
+      </p>
+</form>
+</td></tr>
+</table>
+
+<table border="0"  align="center" width="700">
+		<tr>
+			<td width="202"><strong>
+			  <label for="" class="b">Distance：</label>
+			</strong></td>
+			<td width="495"><input name="textarea1" type="text" id="distance" style="height: 53px; width: 200px; font-size: xx-large" value="">
+	      <label for="" class="b">kilometers</label></td>      		
+		</tr>
+		
+		<tr>
+		<td><label for="" class="b">Waittime：</label></td>
+		<td><input name="distance2" type="text" id="minutes" style="height: 53px; width: 200px; font-size: xx-large" value="">		  <label for="" class="b">minutes</label></td>  
+		</td>
+		</tr>
+     </table>
+     <table border="0"   align="center" width="700">   
+		<tr>
+        <td>
+ 	  <form class="b" name="time" method="post" action="">
+			<label>
+				<input name="times" type="radio" value="radiobutton" checked>
+				5:00 ~ 23:00 </label>
+			<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="times" value="radiobutton">
+				23:00 ~ 5:00 
+			</label>					  
+		</form>	
+        </td>       
+		</tr>  
+		<tr>
+
+			<td width="495">
+            <label for="" class="b">calc price：</label>
+            <input name="textarea12" type="text" id="result" style="height: 50px; width: 200px; font-size: xx-large" value="" readonly>
+	      <label for="" class="b">yuan</label></td>   
+
+
+
+</tr>            
+              
+  	<p>&nbsp;</p>
+		<tr><td align="center">
+	<div>
+		<label>
+		<input type="button"  size="20" name="Submit" value="Calculate!" style="height: 50px; width: 450px; font-size: xx-large" onClick="caculate()">
+		</label>
+        
+	</div>
+</td></tr>     
+
+
+     
+    </table>
+	
+     <table border="0"   align="center" width="700">   
+      <tr>
+            <td><p><strong>Shanghai taxi fee calculate method：</strong></p>
+              <p>[Note]waittime is the time that speed lower than 12km/h；</p>
+              <p>5:00 ~ 23:00</p>
+              <table width="669" border="1">
+                <tr>
+                  <td width="189" align="center">Distance</td>
+                  <td width="338" align="center">Price</td>
+                </tr>              
+                <tr>
+                  <td width="189">kilometers&lt;= 3</td>
+                  <td width="338">14 + minutes * 0.48</td>
+                </tr>
+                <tr>
+                  <td>3 &lt;kilometers&lt;= 10</td>
+                  <td>14 + (kilometers - 3) * 2.4 + minutes * 0.48</td>
+                </tr>
+                <tr>
+                  <td>kilometers&gt;10</td>
+                  <td>30.8 + (kilometers - 10) * 3.6 + minutes * 0.48</td>
+                </tr>
+              </table>
+              <p>23:00 ~ 5:00</p>
+              <table width="670" border="1">
+                <tr>
+                  <td width="219" align="center">Distance</td>
+                  <td width="435" align="center">Price</td>
+                </tr>
+                <tr>
+                  <td width="219">kilometers&lt;= 3</td>
+                  <td width="435">18 + minutes * 0.62</td>
+                </tr>
+                <tr>
+                  <td>3 &lt;kilometers&lt;= 10</td>
+                  <td>18 + (kilometers - 3) * 3.1 + minutes * 0.62</td>
+                </tr>
+                <tr>
+                  <td>kilometers&gt;10</td>
+                  <td>39.7 + (kilometers - 10) * 4.7 + minutes * 0.62</td>
+                </tr>
+        </table></td>
+      </tr>
+          <tr>
+		  
+		  <tr>	  
+            <td>
+			<table> <tr> <td>
+            <p><strong>Shanghai taxi service number</strong></p>
+              <table width="350" border="1">
+                <tr>
+                  <td>company</td>
+                  <td>phone number</td>
+                </tr>
+                <tr>
+                  <td>taxi service center</td>
+                  <td>96965</td>
+                </tr>
+                <tr>
+                  <td>Qiangsheng</td>
+                  <td>62580000</td>
+                </tr>
+                <tr>
+                  <td>DAzhong</td>
+                  <td>96822</td>
+                </tr>
+                <tr>
+                  <td>Jiangjiang</td>
+                  <td>96961</td>
+                </tr>
+                <tr>
+                  <td>Bashi</td>
+                  <td>96840</td>
+                </tr>
+                <tr>
+                  <td>Haibo</td>
+                  <td>96933</td>
+                </tr>
+            </table>  
+            </td>
+            <td> <p><strong>About the app</strong></p>
+              <table  border="0">
+                <tr><td>
+				<p> This app limited to use at Shanghai. Wish it can help you at some time. You can visit my weibo: &quot;neal365&quot;, thank you.</p>
+                </td></tr>
+            </table>              
+            </td>
+            
+            </tr></table>
+            </td>	
+            
+			
+			</tr>
+			
+          
+</table>
+	
+
+	
+	<script type="text/javascript" charset="utf-8">
+
+		function caculate()
+		{
+			distance = document.getElementById("distance").value;
+			minutes = document.getElementById("minutes").value;
+			if (minutes >0 && minutes <1000)
+			{
+				minutes = minutes;
+			}
+			else
+			{
+				minutes = 0;				
+			}
+			
+			if(time.times[0].checked==true) //5:00 ~ 23:00
+			{
+				if (distance <= 3)
+				{
+					result = 14 + minutes * 0.48;
+				}
+				else if (distance >3 && distance <= 10)
+				{
+					result = 14 + (distance - 3) * 2.4 + minutes * 0.48;
+				}
+				else if (distance > 10)
+				{
+					result = 30.8 + (distance - 10) * 3.6 + minutes * 0.48;
+				}
+				else
+				{
+					result = "error!输入错误！";
+				}
+			}
+			else //23:00 ~ 5:00
+			{
+				if (distance <= 3)
+				{
+					result = 18 + minutes * 0.62;
+				}
+				else if (distance >3 && distance <= 10)
+				{
+					result = 18 + (distance - 3) * 3.1 + minutes * 0.62;
+				}
+				else if (distance > 10)
+				{
+					result = 39.7 + (distance - 10) * 4.7 + minutes * 0.62;
+				}
+				else
+				{
+					result = "error!输入错误！";
+				}			
+			}
+			
+			if (result > 0)
+			{
+				result = Math.round(result);
+			}
+			document.getElementById("result").value = result;
+		}; 
+		      		
+		
+	</script>
+
+        <p>&nbsp;</p>
+</body>
+</html>
