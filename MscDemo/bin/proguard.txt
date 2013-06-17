@@ -1,0 +1,28 @@
+# view AndroidManifest.xml #generated:27
+-keep class com.iflytek.mscdemo.IatDemoActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:49
+-keep class com.iflytek.mscdemo.IatPreferenceActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:33
+-keep class com.iflytek.mscdemo.IsrDemoActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:53
+-keep class com.iflytek.mscdemo.IsrPreferenceActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:9
+-keep class com.iflytek.mscdemo.LauncherActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:20
+-keep class com.iflytek.mscdemo.MainActivity { <init>(...); }
+
+# view res/xml/preference_tts.xml #generated:13
+# view res/xml/preference_tts.xml #generated:18
+-keep class com.iflytek.mscdemo.SeekBarPreference { <init>(...); }
+
+# view AndroidManifest.xml #generated:39
+-keep class com.iflytek.mscdemo.TtsDemoActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:45
+-keep class com.iflytek.mscdemo.TtsPreferenceActivity { <init>(...); }
+

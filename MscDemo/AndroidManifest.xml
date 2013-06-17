@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.iflytek.mscdemo"
+	android:versionCode="1" android:versionName="2.0.1015.1034">
+	<application
+		android:icon="@drawable/icon"
+		android:label="@string/app_name">
+		<activity
+			android:name="LauncherActivity"
+			android:label="@string/app_name"
+			android:theme="@style/SpeechApiLauncherTheme">
+			<intent-filter>
+				<action
+					android:name="android.intent.action.MAIN" />
+				<category
+					android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name="MainActivity"
+			android:label="@string/title"
+			android:theme="@style/SpeechApiTheme"
+			android:screenOrientation="portrait"
+			android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|fontScale">
+		</activity>
+		<activity
+			android:name="IatDemoActivity"
+			android:label="@string/title"
+			android:theme="@style/SpeechApiTheme"
+			android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|fontScale"
+			android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+		<activity
+			android:name="IsrDemoActivity"
+			android:label="@string/title"
+			android:theme="@style/SpeechApiTheme"
+			android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|fontScale"
+			android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+		<activity
+			android:name="TtsDemoActivity"
+			android:label="@string/title"
+			android:theme="@style/SpeechApiTheme"
+			android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|fontScale"
+			android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+		<activity
+			android:name="TtsPreferenceActivity"
+			android:label="@string/title"
+			android:theme="@style/SpeechApiPreferenceTheme"></activity>
+		<activity
+			android:name="IatPreferenceActivity"
+			android:label="@string/title"
+			android:theme="@style/SpeechApiPreferenceTheme"></activity>
+		<activity
+			android:name="com.iflytek.mscdemo.IsrPreferenceActivity"
+			android:label="@string/title"
+			android:theme="@style/SpeechApiPreferenceTheme"></activity>
+	</application>
+	<uses-sdk android:minSdkVersion="3" />
+	<uses-permission
+		android:name="android.permission.RECORD_AUDIO" />
+	<uses-permission
+		android:name="android.permission.INTERNET" />
+	<uses-permission
+		android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission
+		android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission
+		android:name="android.permission.CHANGE_NETWORK_STATE" />
+	<uses-permission
+		android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission 
+		android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+</manifest>
