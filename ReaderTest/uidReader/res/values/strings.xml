@@ -2,4 +2,15 @@
 <resources>
     <string name="app_name">uidReader</string>
     <string name="openUSB">OpenUSB</string>
+    <string name="closeUSB">CloseUSB</string>
+    <string name="power">START</string>
+    <string name="getUID">GetUID</string>
+    <string name="authentication">Authentication</string>
+    <string name="writeKey">WriteKey</string>
+
+    <string name="writeSuc">密钥写卡成功！</string>
+    <string name="writeFail">密钥写卡失败！</string>
+    <string name="readSuc">读卡成功，睿博专用卡！</string>
+    <string name="readFail">读卡失败，非睿博卡！</string>
+
 </resources>

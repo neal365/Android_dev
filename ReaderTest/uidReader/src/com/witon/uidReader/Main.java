@@ -25,6 +25,7 @@ import android.os.Bundle;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 public class Main extends Activity {
@@ -36,13 +37,21 @@ public class Main extends Activity {
     private static final String[] stateStrings = { "Unknown", "Absent",
             "Present", "Swallowed", "Powered", "Negotiable", "Specific" };
 
-    private TextView logView;
+    private TextView logView, msgView;
     private String mReaderDeviceName;   //Only one USB device inserted
     private int mSlotNum = 0;               //default slot num is 0
     private int mPowerAction = Reader.CARD_WARM_RESET;           //default mPowerAction
     private Button mOpenButton,mCloseButton, mStartButton;
     private static final String[] powerActionStrings = { "Power Down",
             "Cold Reset", "Warm Reset" };
+
+
+    //Different states for reading the key automatically
+    private static final int STATE_NONE = 0;
+    private static final int STATE_KEY_PRESENT = 1;
+    private static final int STATE_POWER_ON = 2;
+    private int mReaderState = 0;
+    private byte[] mUID;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +61,8 @@ public class Main extends Activity {
         logView.setMovementMethod(new ScrollingMovementMethod());
         logView.setMaxLines(MAX_LINES);
         logView.setText("");
+        msgView = (TextView)findViewById(R.id.msg);
+        mUID = new byte[8];
 
         // Get USB manager
         mManager = (UsbManager) getSystemService(Context.USB_SERVICE);
@@ -68,6 +79,13 @@ public class Main extends Activity {
                         || currState > Reader.CARD_SPECIFIC) {
                     currState = Reader.CARD_UNKNOWN;
                 }
+                if(stateStrings[currState].equals("Present")){
+                    mReaderState = STATE_KEY_PRESENT;
+                }
+                if(stateStrings[currState].equals("Absent")){
+                    mReaderState = STATE_NONE;
+                }
+
                 // Create output string
                 final String outputString = "Slot " + slotNum + ": "
                         + stateStrings[prevState] + " -> "
@@ -441,12 +459,38 @@ public class Main extends Activity {
 
                 logMsg("Response:");
                 logBuffer(progress[0].response, progress[0].responseLength);
-                if(progress[0].response[0] == (byte)9){
-                    logMsg("Success!");
-                }
+
+                checkCommand(progress[0].command, progress[0].response);
             }
         }
 
+    }
+
+    /**
+     * Check if the authentication process success, if succeed, print the UID
+     * @param command
+     * @param response
+     */
+    private void checkCommand(byte[] command, byte[] response){
+        //get UID
+        byte[] input = toByteArray("FFCA000000");
+        if(Arrays.equals(input, command)){
+            for(int i=0; i<8; i++){
+                mUID[i] = response[i];
+            }
+            return;
+        }
+        //check authentication result
+        byte[] input2 = toByteArray("FF8600000501000F6000");
+        if(Arrays.equals(input2, command)){
+            byte[] input3 = {9,0,0,0};
+            if(Arrays.equals(input3, response)){
+                msgView.setText("Authentication Succeed! UID=" + mUID);
+            }else{
+                msgView.setText("Authentication Failed! UID=" + mUID);
+            }
+
+        }
     }
 
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {

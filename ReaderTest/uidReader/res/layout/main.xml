@@ -12,5 +12,54 @@
         android:textSize="40dp"
         android:id="@+id/log"/>
 
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/openUSB"
+            android:id="@+id/button_openUSB"
+            android:layout_gravity="center"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/closeUSB"
+            android:id="@+id/button_closeUSB"
+            android:layout_gravity="center"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/power"
+            android:id="@+id/button_start"
+            android:layout_gravity="center"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/getUID"
+            android:id="@+id/button_getUID"
+            android:layout_gravity="center"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/authentication"
+            android:id="@+id/button_authen"
+            android:layout_gravity="center"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/writeKey"
+            android:id="@+id/button_writeKey"
+            android:layout_gravity="center"/>
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="326dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/msg"
+            android:textSize="120dp"/>
+
 </LinearLayout>
 
