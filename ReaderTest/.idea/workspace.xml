@@ -31,8 +31,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uidReader/src/com/witon/uidReader/Main.java" afterPath="$PROJECT_DIR$/uidReader/src/com/witon/uidReader/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/acs/readertest/Manifest.java" afterPath="$PROJECT_DIR$/gen/com/acs/readertest/Manifest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/acs/readertest/R.java" afterPath="$PROJECT_DIR$/gen/com/acs/readertest/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uidReader/res/layout/main.xml" afterPath="$PROJECT_DIR$/uidReader/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uidReader/res/values/strings.xml" afterPath="$PROJECT_DIR$/uidReader/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ReaderTest.iws" />
@@ -105,7 +103,7 @@
       <file leaf-file-name="ReaderTestActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/acs/readertest/ReaderTestActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1738" column="0" selection-start="68814" selection-end="68814" vertical-scroll-proportion="18.882353" vertical-offset="48222" max-vertical-offset="56760">
+            <state line="1738" column="0" selection-start="68814" selection-end="68814" vertical-scroll-proportion="0.0" vertical-offset="47550" max-vertical-offset="56760">
               <folding />
             </state>
           </provider>
@@ -114,26 +112,13 @@
       <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/uidReader/src/com/witon/uidReader/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="481" column="9" selection-start="17018" selection-end="17018" vertical-scroll-proportion="0.32777777" vertical-offset="13443" max-vertical-offset="20610">
+            <state line="734" column="33" selection-start="25401" selection-end="25401" vertical-scroll-proportion="2.663586" vertical-offset="19649" max-vertical-offset="22620">
               <folding>
-                <element signature="e#2623#3878#0" expanded="true" />
-                <element signature="e#3680#3852#0" expanded="true" />
-                <element signature="e#3833#3834#0" expanded="true" />
-                <element signature="e#3867#3868#0" expanded="true" />
-                <element signature="e#4600#5798#0" expanded="true" />
-                <element signature="e#5787#5788#0" expanded="true" />
-                <element signature="e#5945#6323#0" expanded="true" />
-                <element signature="e#6312#6313#0" expanded="true" />
-                <element signature="e#6467#7036#0" expanded="true" />
-                <element signature="e#7025#7026#0" expanded="true" />
-                <element signature="e#7179#7321#0" expanded="true" />
-                <element signature="e#7310#7311#0" expanded="true" />
-                <element signature="e#7472#7622#0" expanded="true" />
-                <element signature="e#7611#7612#0" expanded="true" />
-                <element signature="e#7773#7917#0" expanded="true" />
-                <element signature="e#7906#7907#0" expanded="true" />
-                <element signature="e#17492#19370#0" expanded="true" />
-                <element signature="e#19363#19364#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#5273#5427#0" expanded="true" />
+                <element signature="e#5416#5417#0" expanded="true" />
+                <element signature="e#18891#20769#0" expanded="true" />
+                <element signature="e#20762#20763#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,7 +139,7 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uidReader/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="12" selection-start="575" selection-end="575" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+            <state line="15" column="12" selection-start="575" selection-end="575" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="660">
               <folding />
             </state>
           </provider>
@@ -242,7 +227,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -426,6 +410,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -446,13 +431,13 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="1280720" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="Repository.Attach.Sources" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="Downloaded.Files.Path" value="C:\Users\Administrator\Desktop\ACS_LIB_Android_111_A\ReaderTest\lib" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="Downloaded.Files.Path" value="C:\Users\Administrator\Desktop\ACS_LIB_Android_111_A\ReaderTest\lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -642,8 +627,8 @@
     <option name="totallyTimeSpent" value="6667000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1778" height="1050" extended-state="7" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1778" height="1050" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30722892" sideWeight="0.670151" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -654,14 +639,14 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972618" sideWeight="0.28687572" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972618" sideWeight="0.28687572" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43655413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4368482" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26294118" sideWeight="0.6705471" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26294118" sideWeight="0.67171127" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32968238" sideWeight="0.670151" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24941176" sideWeight="0.6705471" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32945284" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24941176" sideWeight="0.6705471" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282887" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32968238" sideWeight="0.670151" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -733,18 +718,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/acs/readertest/ReaderTestActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="31" selection-start="4860" selection-end="4860" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/read_key_dialog.xml">
       <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -752,9 +728,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/verify_pin_dialog.xml">
       <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -762,9 +736,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/modify_pin_dialog.xml">
       <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -772,9 +744,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/display_lcd_message_dialog.xml">
       <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -809,9 +779,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -819,9 +787,7 @@
     </entry>
     <entry file="jar://$PROJECT_DIR$/uidReader/libs/acssmc-1.1.1.jar!/com/acs/smartcard/Reader.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="40" selection-start="691" selection-end="703" vertical-scroll-proportion="0.611465" vertical-offset="0" max-vertical-offset="3420">
-          <folding />
-        </state>
+        <state line="17" column="40" selection-start="691" selection-end="703" vertical-scroll-proportion="0.611465" vertical-offset="0" max-vertical-offset="3420" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uidReader/res/values/strings.xml">
@@ -843,40 +809,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="823">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="823" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/hardware/usb/UsbManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.19354838" vertical-offset="36" max-vertical-offset="1110" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/acs/readertest/ReaderTestActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1738" column="0" selection-start="68814" selection-end="68814" vertical-scroll-proportion="18.882353" vertical-offset="48222" max-vertical-offset="56760">
+        <state line="1738" column="0" selection-start="68814" selection-end="68814" vertical-scroll-proportion="0.0" vertical-offset="52110" max-vertical-offset="61320">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uidReader/src/com/witon/uidReader/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="481" column="9" selection-start="17018" selection-end="17018" vertical-scroll-proportion="0.32777777" vertical-offset="13443" max-vertical-offset="20610">
+        <state line="734" column="33" selection-start="25401" selection-end="25401" vertical-scroll-proportion="2.663586" vertical-offset="19649" max-vertical-offset="22620">
           <folding>
-            <element signature="e#2623#3878#0" expanded="true" />
-            <element signature="e#3680#3852#0" expanded="true" />
-            <element signature="e#3833#3834#0" expanded="true" />
-            <element signature="e#3867#3868#0" expanded="true" />
-            <element signature="e#4600#5798#0" expanded="true" />
-            <element signature="e#5787#5788#0" expanded="true" />
-            <element signature="e#5945#6323#0" expanded="true" />
-            <element signature="e#6312#6313#0" expanded="true" />
-            <element signature="e#6467#7036#0" expanded="true" />
-            <element signature="e#7025#7026#0" expanded="true" />
-            <element signature="e#7179#7321#0" expanded="true" />
-            <element signature="e#7310#7311#0" expanded="true" />
-            <element signature="e#7472#7622#0" expanded="true" />
-            <element signature="e#7611#7612#0" expanded="true" />
-            <element signature="e#7773#7917#0" expanded="true" />
-            <element signature="e#7906#7907#0" expanded="true" />
-            <element signature="e#17492#19370#0" expanded="true" />
-            <element signature="e#19363#19364#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#5273#5427#0" expanded="true" />
+            <element signature="e#5416#5417#0" expanded="true" />
+            <element signature="e#18891#20769#0" expanded="true" />
+            <element signature="e#20762#20763#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -3,8 +3,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.hardware.usb.UsbDevice;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +26,7 @@ import android.app.PendingIntent;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 
+import java.lang.ref.WeakReference;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -45,13 +49,26 @@ public class Main extends Activity {
     private static final String[] powerActionStrings = { "Power Down",
             "Cold Reset", "Warm Reset" };
 
-
+    //USB reader state
+    private int mUSBstate = 0;
+    private static final int USB_STATE_NONE = 0;
+    private static final int USB_STATE_CONNECTED = 1;
     //Different states for reading the key automatically
     private static final int STATE_NONE = 0;
     private static final int STATE_KEY_PRESENT = 1;
     private static final int STATE_POWER_ON = 2;
     private int mReaderState = 0;
-    private byte[] mUID;
+    private String mUID;
+    //message sent to the handler
+    private static final int MSG_CARD_PRESENT = 0;
+    private static final int MSG_CARD_ABSENT = 1;
+    private static final int MSG_POWER_SUCCESS = 2;
+    private static final int MSG_AUTHEN_SUCCESS = 3;
+    private static final int MSG_AUTHEN_FAIL = 4;
+    private static final int MSG_WRITE_SUCCESS = 5;
+    private static final int MSG_WRITE_FAIL = 6;
+    private MainHandler mHandler;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,7 +79,7 @@ public class Main extends Activity {
         logView.setMaxLines(MAX_LINES);
         logView.setText("");
         msgView = (TextView)findViewById(R.id.msg);
-        mUID = new byte[8];
+        mHandler = new MainHandler();
 
         // Get USB manager
         mManager = (UsbManager) getSystemService(Context.USB_SERVICE);
@@ -81,9 +98,11 @@ public class Main extends Activity {
                 }
                 if(stateStrings[currState].equals("Present")){
                     mReaderState = STATE_KEY_PRESENT;
+                    mHandler.sendEmptyMessage(MSG_CARD_PRESENT);
                 }
                 if(stateStrings[currState].equals("Absent")){
                     mReaderState = STATE_NONE;
+                    mHandler.sendEmptyMessage(MSG_CARD_ABSENT);
                 }
 
                 // Create output string
@@ -103,49 +122,20 @@ public class Main extends Activity {
         // Register receiver for USB permission
         mPermissionIntent = PendingIntent.getBroadcast(this, 0, new Intent(
                 ACTION_USB_PERMISSION), 0);
+
         IntentFilter filter = new IntentFilter();
         filter.addAction(ACTION_USB_PERMISSION);
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
         registerReceiver(mReceiver, filter);
 
-        for (UsbDevice device : mManager.getDeviceList().values()) {
-            if (mReader.isSupported(device)) {
-                mReaderDeviceName = device.getDeviceName();
-            }
-        }
+        new CheckUSBthread();
 
         // Initialize open button
         mOpenButton = (Button) findViewById(R.id.button_openUSB);
         mOpenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean requested = false;
-                // Disable open button
-                mOpenButton.setEnabled(false);
-                String deviceName = mReaderDeviceName;
-                logMsg("open:" + deviceName);
-                if (deviceName != null) {
-                    // For each device
-                    for (UsbDevice device : mManager.getDeviceList().values()) {
-                        // If device name is found
-                        if (deviceName.equals(device.getDeviceName())) {
-                            // Request permission
-                            mManager.requestPermission(device,
-                                    mPermissionIntent);
-                            requested = true;
-
-
-                            break;
-                        }
-                    }
-                }
-
-                if (!requested) {
-                    // Enable open button
-                    mOpenButton.setEnabled(false);
-                    mCloseButton.setEnabled(true);
-                    mStartButton.setEnabled(true);
-                }
+                new CheckUSBthread();
             }
         });
 
@@ -168,17 +158,7 @@ public class Main extends Activity {
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //power the reader
-                // Set parameters
-                PowerParams params = new PowerParams();
-                params.slotNum = mSlotNum;
-                params.action = mPowerAction;
-                // Perform power action
-                logMsg("Slot " + mSlotNum + ": "
-                        + powerActionStrings[mPowerAction] + "...");
-                new PowerTask().execute(params);
-
-                setProtocol();
+                powerOn();
             }
         });
 
@@ -210,6 +190,52 @@ public class Main extends Activity {
         });
     }
 
+    private void powerOn() {
+        //power the reader
+        // Set parameters
+        PowerParams params = new PowerParams();
+        params.slotNum = mSlotNum;
+        params.action = mPowerAction;
+        // Perform power action
+        logMsg("Slot " + mSlotNum + ": "
+                + powerActionStrings[mPowerAction] + "...");
+        new PowerTask().execute(params);
+
+        setProtocol();
+    }
+
+    /**
+     * handle the messages send to Main activity
+     */
+    class MainHandler extends Handler {
+        MainHandler() {
+        }
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MSG_CARD_PRESENT:
+                    msgView.setText("CARD PRESENT");
+                    powerOn();
+                    break;
+                case MSG_CARD_ABSENT:
+                    msgView.setText("CARD ABSENT");
+                    break;
+                case MSG_POWER_SUCCESS:
+                    getUID();
+                    authentication();
+                    break;
+                case MSG_AUTHEN_SUCCESS:
+                    msgView.setText("Authentication Succeed! \nUID=" + mUID);
+                    break;
+                case MSG_AUTHEN_FAIL:
+                    msgView.setText("Authentication Fail! \nUID=" + mUID);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     private void setProtocol(){
         int preferredProtocols = Reader.PROTOCOL_UNDEFINED;
         String preferredProtocolsString = "";
@@ -238,6 +264,9 @@ public class Main extends Activity {
     }
 
     private void getUID(){
+        if(mReaderState != STATE_POWER_ON){
+            return;
+        }
         // Set parameters
         TransmitParams params = new TransmitParams();
         params.slotNum = mSlotNum;
@@ -250,6 +279,9 @@ public class Main extends Activity {
     }
 
     private void authentication(){
+        if(mReaderState != STATE_POWER_ON){
+            return;
+        }
         // Set parameters
         TransmitParams params = new TransmitParams();
         params.slotNum = mSlotNum;
@@ -320,6 +352,8 @@ public class Main extends Activity {
                 if (result.atr != null) {
                     logMsg("ATR:");
                     logBuffer(result.atr, result.atr.length);
+                    mHandler.sendEmptyMessage(MSG_POWER_SUCCESS);
+                    mReaderState = STATE_POWER_ON;
                 } else {
                     logMsg("ATR: None");
                 }
@@ -373,6 +407,7 @@ public class Main extends Activity {
                 }
                 // Show active protocol
                 logMsg(activeProtocolString);
+                mHandler.sendEmptyMessage(MSG_POWER_SUCCESS);
             }
         }
     }
@@ -475,21 +510,31 @@ public class Main extends Activity {
         //get UID
         byte[] input = toByteArray("FFCA000000");
         if(Arrays.equals(input, command)){
-            for(int i=0; i<8; i++){
-                mUID[i] = response[i];
-            }
+            mUID = toHexString(response).substring(0, 11);
             return;
         }
         //check authentication result
         byte[] input2 = toByteArray("FF8600000501000F6000");
         if(Arrays.equals(input2, command)){
-            byte[] input3 = {9,0,0,0};
-            if(Arrays.equals(input3, response)){
-                msgView.setText("Authentication Succeed! UID=" + mUID);
+            String strRsp = toHexString(response).substring(0,5);
+            logMsg(strRsp);
+            if("90 00".equals(strRsp)){
+                mHandler.sendEmptyMessage(MSG_AUTHEN_SUCCESS);
             }else{
-                msgView.setText("Authentication Failed! UID=" + mUID);
+                mHandler.sendEmptyMessage(MSG_AUTHEN_FAIL);
             }
+        }
 
+        //check writeKey result
+        byte[] input3 = toByteArray("FFD6000F10201220132014078069FFFFFFFFFFFF");
+        if(Arrays.equals(input3, command)){
+            String strRsp = toHexString(response).substring(0,5);
+            logMsg(strRsp);
+            if("90 00".equals(strRsp)){
+                mHandler.sendEmptyMessage(MSG_WRITE_SUCCESS);
+            }else{
+                mHandler.sendEmptyMessage(MSG_WRITE_FAIL);
+            }
         }
     }
 
@@ -548,11 +593,13 @@ public class Main extends Activity {
         protected void onPostExecute(Exception result) {
             if (result != null) {
                 logMsg(result.toString());
+                mUSBstate = USB_STATE_NONE;
             } else {
                 logMsg("Reader name: " + mReader.getReaderName());
                 int numSlots = mReader.getNumSlots();
                 logMsg("Number of slots: " + numSlots);
                 mSlotNum = numSlots-1;
+                mUSBstate = USB_STATE_CONNECTED;
             }
         }
     }
@@ -564,6 +611,7 @@ public class Main extends Activity {
         }
         @Override
         protected void onPostExecute(Void result) {
+            mUSBstate = USB_STATE_NONE;
         }
     }
 
@@ -704,5 +752,28 @@ public class Main extends Activity {
         // Unregister receiver
         unregisterReceiver(mReceiver);
         super.onDestroy();
+    }
+
+    private class CheckUSBthread extends Thread implements Runnable{
+        public CheckUSBthread() {
+            start();
+        }
+        public void run(){
+            while (mUSBstate == USB_STATE_NONE){
+                for (UsbDevice device : mManager.getDeviceList().values()) {
+                    if (mReader.isSupported(device)) {
+                        mReaderDeviceName = device.getDeviceName();
+                        mManager.requestPermission(device,
+                                mPermissionIntent);
+                    }
+                }
+                try {
+                    sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
     }
 }
